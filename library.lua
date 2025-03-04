@@ -3112,7 +3112,6 @@ function library:init()
                             if not nocallback then
                                 self.callback(newValue);
                             end
-
                         end
                     end
 
@@ -3124,8 +3123,10 @@ function library:init()
                     end
 
                     tooltip(slider);
+
                     slider:SetText(slider.text);
-                    slider:SetValue(slider.value);
+                    slider:SetValue(slider.value,true);
+
                     self:UpdateOptions();
                     return slider
                 end
@@ -4292,7 +4293,7 @@ function library:init()
                     list:Select((data.value or data.selected) or (list.multi and 'none' or list.values[1]));
                     list:SetText(list.text);
                     self:UpdateOptions();
-					
+
                     return list
                 end
 
