@@ -2032,13 +2032,13 @@ function library:init()
                         state = false;
                         risky = false;
                         callback = function() end;
-                        enabled = false;
+                        enabled = true;
                         options = {};
                         objects = {};
                     };
 
                     local blacklist = {'objects'};
-					
+
                     for i,v in next, data do
                         if not table.find(blacklist, i) ~= toggle[i] ~= nil then
                             toggle[i] = v
@@ -2875,11 +2875,15 @@ function library:init()
                     end
 
                     tooltip(toggle);
+
                     toggle:SetText(toggle.text);
                     toggle:SetState(toggle.state, true);
+
                     self:UpdateOptions();
 
-                    toggle:SetState(toggle.enabled)
+					-- if toggle.enabled == true then 
+                    -- 	toggle:SetState(toggle.enabled)
+					-- end;
 
                     return toggle
                 end
