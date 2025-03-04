@@ -2310,7 +2310,7 @@ function library:init()
                         end
     
                         tooltip(color);
-                        color:SetColor(color.color, true);
+                        color:SetColor(color.color);
                         color:SetTrans(color.trans, true);
                         self:UpdateOptions();
 
@@ -2685,7 +2685,7 @@ function library:init()
                         end
 
                         tooltip(slider);
-                        slider:SetValue(slider.value, true);
+                        slider:SetValue(slider.value);
                         self:UpdateOptions();
                         return slider
                     end
@@ -2877,7 +2877,7 @@ function library:init()
                     tooltip(toggle);
 
                     toggle:SetText(toggle.text);
-                    toggle:SetState(toggle.state, true);
+                    toggle:SetState(toggle.state);
 
                     self:UpdateOptions();
 
@@ -3125,7 +3125,7 @@ function library:init()
 
                     tooltip(slider);
                     slider:SetText(slider.text);
-                    slider:SetValue(slider.value, true);
+                    slider:SetValue(slider.value);
                     self:UpdateOptions();
                     return slider
                 end
@@ -4289,9 +4289,10 @@ function library:init()
                     end
 
                     tooltip(list);
-                    list:Select((data.value or data.selected) or (list.multi and 'none' or list.values[1]), true);
+                    list:Select((data.value or data.selected) or (list.multi and 'none' or list.values[1]));
                     list:SetText(list.text);
                     self:UpdateOptions();
+					
                     return list
                 end
 
