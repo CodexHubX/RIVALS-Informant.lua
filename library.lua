@@ -2022,6 +2022,7 @@ function library:init()
 
                 -- // Toggle
                 function section:AddToggle(data)
+
                     local toggle = {
                         class = 'toggle';
                         flag = data.flag;
@@ -2031,12 +2032,13 @@ function library:init()
                         state = false;
                         risky = false;
                         callback = function() end;
-                        enabled = true;
+                        enabled = false;
                         options = {};
                         objects = {};
                     };
 
                     local blacklist = {'objects'};
+					
                     for i,v in next, data do
                         if not table.find(blacklist, i) ~= toggle[i] ~= nil then
                             toggle[i] = v
@@ -2171,6 +2173,7 @@ function library:init()
 
                     -- // Toggle Addons
                     function toggle:AddColor(data)
+
                         local color = {
                             class = 'color';
                             flag = data.flag;
@@ -2310,6 +2313,8 @@ function library:init()
                         color:SetColor(color.color, true);
                         color:SetTrans(color.trans, true);
                         self:UpdateOptions();
+
+						
                         return color
                     end
 
